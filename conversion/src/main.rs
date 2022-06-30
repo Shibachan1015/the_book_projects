@@ -3,11 +3,13 @@
 // °F = °C × 1.8 + 32  
 
 use std::io;
+use crate::calc::calc_ctof;
 
 fn main() {
     // 最終目標　println!("摂氏と華氏双方向に温度を変換できます。");
     // exit()などで正常終了を実装したい。
     // 次は華氏から摂氏に変換を実装する。
+    // |idea| if or match で　摂氏から華氏か華氏から摂氏を判定してそこでctof関数かftocを呼びだせば良いのではないか。
     println!("摂氏を華氏に変換します。");
 
     loop {
@@ -32,7 +34,9 @@ fn main() {
     }
 }
 
+
+/*
 fn calc_ctof(current_temperature: f64) -> f64 {
     current_temperature * 1.8 + 32.0
 }
-
+*/
