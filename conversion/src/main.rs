@@ -1,9 +1,9 @@
 // 摂氏華氏変換
 // °C = ((°F) -32) ÷ 1.8
-// °F = °C × 1.8 + 32  
+// °F = °C × 1.8 + 32
 
+mod my_calc;
 use std::io;
-use crate::calc::calc_ctof;
 
 fn main() {
     // 最終目標　println!("摂氏と華氏双方向に温度を変換できます。");
@@ -26,14 +26,13 @@ fn main() {
             Err(_) => continue,
         };
 
-        let calc_number_ctof: f64 = calc_ctof(current_temperature);
+        let calc_number_ctof: f64 = crate::my_calc::my_calc::calc_ctof(current_temperature);
 
         println!("摂氏{}°Cは", current_temperature);
 
         println!("華氏{}°Fです。", calc_number_ctof);
     }
 }
-
 
 /*
 fn calc_ctof(current_temperature: f64) -> f64 {
