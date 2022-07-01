@@ -18,8 +18,12 @@ use std::io;
 
 fn main() {
 
-    println!("摂氏を華氏、または華氏を摂氏に変換します。");
-    let input_number = 
+    // ｃからf（１）の場合
+    // let convert1 = convert_ctof_1();
+    // ｆからｃ（２）の場合
+    // let convert2 = convert_ftoc_2();
+    
+    let disp_info = 
         "\n
         +-------------------------------------------------+\n
         |摂氏(°C)から華氏(°F)に変換する場合は数値 1 を入力|\n
@@ -29,14 +33,10 @@ fn main() {
         ";
 
     
-    // ｃからf（１）の場合
-    let convert1 = convert_ctof_1();
-    // ｆからｃ（２）の場合
-    let convert2 = convert_ftoc_2();
-    
+        println!("摂氏を華氏、または華氏を摂氏に変換します。\n");
+        println!("{}", disp_info);
 
     loop {
-        println!("{}", input_number);
         let mut c_or_f = String::new();
 
         io::stdin()
@@ -48,63 +48,73 @@ fn main() {
             Err(_) => continue,
         };
         
-        println!("{}を受け付けました。", &c_or_f);
+        println!("{}を受け付けました。\n", &c_or_f);
         
+        if c_or_f == 1 {
+            convert_ctof_1();
+        } else if c_or_f == 2 {
+            convert_ftoc_2();
+        } else {
+            break;
+        } 
+
+        /*
         match c_or_f {
             1 => convert1,
             2 => convert2,
             _ => continue
-        }  
+        } 
+        */
     }
+
 }
 /*---------------------------------------------------------------------------*/
-    fn convert_ctof_1 () {
-        println!("摂氏を華氏に変換します。");
+fn convert_ctof_1 () {
+    println!("摂氏を華氏に変換します。\n");
 
-        loop {
-            println!("変換したい温度を入力してください。");
+    loop {
+        println!("変換したい温度を入力してください。\n");
 
-            let mut current_temperature = String::new();
+        let mut current_temperature = String::new();
 
-            io::stdin()
-                .read_line(&mut current_temperature)
-                .expect("行の読み込みに失敗しました。");
+        io::stdin()
+            .read_line(&mut current_temperature)
+            .expect("行の読み込みに失敗しました。");
 
-            let current_temperature: f64 = match current_temperature.trim().parse() {
-                Ok(num) => num,
-                Err(_) => continue,
-            };
+        let current_temperature: f64 = match current_temperature.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
-            let calc_number_ctof: f64 = my_calc::my_calc::calc_ctof(current_temperature);
-
-            println!("摂氏{}°Cは", current_temperature);
-            println!("華氏{}°Fです。", calc_number_ctof);
-        }
+        let calc_number_ctof: f64 = my_calc::my_calc::calc_ctof(current_temperature);
+        println!("摂氏{}°Cは", current_temperature);
+        println!("華氏{}°Fです。\n", calc_number_ctof);
     }
+}
 
-    fn convert_ftoc_2 () {
-        println!("華氏を摂氏に変換します。");
+fn convert_ftoc_2 () {
+    println!("華氏を摂氏に変換します。");
 
-        loop {
-            println!("変換したい温度を入力してください。");
+    loop {
+        println!("変換したい温度を入力してください。");
 
-            let mut current_temperature = String::new();
+        let mut current_temperature = String::new();
 
-            io::stdin()
-                .read_line(&mut current_temperature)
-                .expect("行の読み込みに失敗しました。");
+        io::stdin()
+            .read_line(&mut current_temperature)
+            .expect("行の読み込みに失敗しました。");
 
-            let current_temperature: f64 = match current_temperature.trim().parse() {
-                Ok(num) => num,
-                Err(_) => continue,
-            };
+        let current_temperature: f64 = match current_temperature.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+        };
 
-            let calc_number_ftoc: f64 = my_calc::my_calc::calc_ftoc(current_temperature);
+        let calc_number_ftoc: f64 = my_calc::my_calc::calc_ftoc(current_temperature);
 
-            println!("華氏{}°Fは", current_temperature);
-            println!("摂氏{}°Cです", calc_number_ftoc);
-        }
+        println!("華氏{}°Fは", current_temperature);
+        println!("摂氏{}°Cです。\n", calc_number_ftoc);
     }
+}
 
 
 
