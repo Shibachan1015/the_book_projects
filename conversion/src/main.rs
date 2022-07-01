@@ -2,7 +2,7 @@
 // °C = ((°F) -32) ÷ 1.8
 // °F = °C × 1.8 + 32
 
-mod my_calc;
+mod my_calc;  // calc_ctofなどの関数のモジュール
 use std::io;
 
 fn main() {
@@ -26,7 +26,7 @@ fn main() {
             Err(_) => continue,
         };
 
-        let calc_number_ctof: f64 = crate::my_calc::my_calc::calc_ctof(current_temperature);
+        let calc_number_ctof: f64 = my_calc::my_calc::calc_ctof(current_temperature);
 
         println!("摂氏{}°Cは", current_temperature);
 
@@ -34,8 +34,8 @@ fn main() {
     }
 }
 
-/*
-fn calc_ctof(current_temperature: f64) -> f64 {
-    current_temperature * 1.8 + 32.0
-}
-*/
+
+
+
+
+
