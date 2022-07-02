@@ -55,9 +55,11 @@ fn main() {
         } else if c_or_f == 2 {
             convert_ftoc_2();
         } else {
+            println!("規定値以外の値です。プログラムを終了します。");
             break;
         } 
 
+        
         /*
         match c_or_f {
             1 => convert1,
@@ -69,6 +71,19 @@ fn main() {
 
 }
 /*---------------------------------------------------------------------------*/
+/*
+fn exit() {
+    let mut input = String::new();
+
+    io::stdin().read_line(&mut input)?;
+    
+    let input: String = match input.trim().parse() {Ok(string) => string, Err(_) => continue};
+
+
+}
+*/
+
+
 fn convert_ctof_1 () {
     println!("摂氏を華氏に変換します。\n");
 
@@ -84,6 +99,7 @@ fn convert_ctof_1 () {
         let current_temperature: f64 = match current_temperature.trim().parse() {
             Ok(num) => num,
             Err(_) => continue,
+        //  Err(exit) => break, mainloopにもどる感じで意図した挙動ではない。
         };
 
         let calc_number_ctof: f64 = my_calc::my_calc::calc_ctof(current_temperature);
