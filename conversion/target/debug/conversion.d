@@ -1,0 +1,1 @@
+/home/takao/rust/projects/the_book_projects/conversion/target/debug/conversion: /home/takao/rust/projects/the_book_projects/conversion/src/main.rs /home/takao/rust/projects/the_book_projects/conversion/src/my_calc.rs
